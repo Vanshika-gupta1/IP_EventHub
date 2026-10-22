@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Events - EventHub</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<nav class="navbar">
+		<div class="logo">EventHub</div>
+		<div class="nav-links">
+			<a href="index.html">Home</a> <a href="events.html">Events</a> <a
+				href="#">About</a> <a href="login.html">Login</a> <a
+				href="registration.html" class="register-btn"> Register </a>
+		</div>
+	</nav>
+
+	<main class="events-page">
+
+		<div class="events-header">
+			<h1>All Events</h1>
+			<input type="text" id="eventSearch" placeholder="Search events...">
+		</div>
+
+
+		<div class="categories">
+			<button class="active" data-category="All">All</button>
+			<button data-category="Technical">Technical</button>
+			<button data-category="Cultural">Cultural</button>
+			<button data-category="Sports">Sports</button>
+			<button data-category="Literary">Literary</button>
+		</div>
+
+
+		<div class="all-events" id="eventsContainer">
+			<p>Loading events...</p>
+		</div>
+	</main>
+
+
+	<script>
+    let allEvents = [];
+    let selectedCategory = "All";
+
+    async function loadEvents() {
+        const container = document.getElementById("eventsContainer");
+
+        try {
+            const response = await fetch("events");
+
+            if (!response.ok) {
+                throw new Error("Failed to load events");
+            }
+
+            allEvents = await response.json();
+            displayEvents(allEvents);
+
+        } catch (error) {
+            console.error(error);
+            container.textContent =
+                "Unable to load events. Please try again later.";
+        }
+    }
+
+    function displayEvents(events) {
+        const container = document.getElementById("eventsContainer");
+        container.innerHTML = "";
+
+        events.forEach(event => {
+            const card = document.createElement("div");
+            card.className = "event-card";
+
+            const title = document.createElement("h3");
+            title.textContent = event.name;
+
+            const date = document.createElement("p");
+            date.textContent = "Date: " + event.date;
+
+            const venue = document.createElement("p");
+            venue.textContent = "Venue: " + event.venue;
+
+            const description = document.createElement("p");
+            description.textContent = event.description;
+
+            const category = document.createElement("p");
+            category.textContent = "Category: " + event.category;
+
+            const link = document.createElement("a");
+            link.href = "registration.html?eventId=" + event.id;
+            link.className = "event-button";
+            link.textContent = "Register";
+
+            card.append(title, date, venue, description, category, link);
+            container.appendChild(card);
+        });
+    }
+
+    function filterEvents() {
+        const searchText = document
+            .getElementById("eventSearch")
+            .value.toLowerCase();
+
+        const filteredEvents = allEvents.filter(event => {
+            const matchesCategory =
+                selectedCategory === "All" ||
+                event.category === selectedCategory;
+
+            const matchesSearch =
+                event.name.toLowerCase().includes(searchText);
+
+            return matchesCategory && matchesSearch;
+        });
+
+        displayEvents(filteredEvents);
+    }
+
+    document.getElementById("eventSearch").addEventListener("input", filterEvents);
+    
+
+    const categoryButtons = document.querySelectorAll(".categories button");
+
+    categoryButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            selectedCategory = this.dataset.category;
+
+            categoryButtons.forEach(btn => {
+                btn.classList.remove("active");
+            });
+
+            this.classList.add("active");
+
+            filterEvents();
+        });
+    });
+
+
+    loadEvents();
+</script>
+
+
+</body>
+</html>

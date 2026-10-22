@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration-EventHub</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	<nav class="navbar">
+		<div class="logo">EventHub</div>
+
+		<div class="nav-links">
+			<a href="index.html">Home</a> <a href="events.html">Events</a> <a
+				href="#">About</a> <a href="login.html">Login</a> <a
+				href="registration.html" class="register-btn">Register</a>
+		</div>
+	</nav>
+
+	<main class="registration-page">
+		<h1>Event Registration</h1>
+		<form action="register" method="post">
+			<!-- name -->
+			<label for="name">Full Name</label> <input type="text" id="name"
+				name="name" placeholder="Enter your full name" required>
+
+			<!-- email -->
+			<label for="email">Email</label> <input type="email" id="email"
+				name="email" placeholder="Enter your email" required>
+
+			<!-- phone -->
+			<label for="phone">Phone Number</label> <input type="tel" id="phone"
+				name="phone" placeholder="Enter your phone no" required>
+
+			<!-- department -->
+			<label for="department">Department</label> <select name="department"
+				id="department" required>
+				<option value="">Select your department</option>
+				<option value="computer">Computer Engineering</option>
+				<option value="it">Information Technology</option>
+				<option value="civil">Civil</option>
+				<option value="mechanical">Mechanical Engineering</option>
+			</select>
+
+			<!-- year -->
+			<label for="year">Year</label> <select name="year" id="year" required>
+				<option value="">Select your year</option>
+				<option value="1">First Year</option>
+				<option value="2">Second year</option>
+				<option value="3">Third Year</option>
+				<option value="4">Fourth Year</option>
+			</select>
+
+			<!-- event -->
+			<label for="event">Select Event</label> 
+			<select name="event" id="event" required>
+				<option value="">Loading events...</option>
+			</select>
+
+			<button type="submit">Register</button>
+		</form>
+	</main>
+
+
+	
+<script>
+    async function loadEventOptions() {
+        const dropdown = document.getElementById("event");
+        const params = new URLSearchParams(window.location.search);
+        const selectedEventId = params.get("eventId");
+
+        try {
+            const response = await fetch("events");
+
+            if (!response.ok) {
+                throw new Error("Could not load events");
+            }
+
+            const events = await response.json();
+
+            dropdown.innerHTML = '<option value="">Select an event</option>';
+
+            events.forEach(event => {
+                const option = document.createElement("option");
+
+                option.value = event.id;
+                option.textContent = event.name;
+
+                dropdown.appendChild(option);
+            });
+
+            if (selectedEventId) {
+                dropdown.value = selectedEventId;
+            }
+
+        } catch (error) {
+            console.error(error);
+            dropdown.innerHTML =
+                '<option value="">Unable to load events</option>';
+        }
+    }
+
+    loadEventOptions();
+</script>
+</body>
+</html>
+	
+
+</body>
+</html>

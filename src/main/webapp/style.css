@@ -1,0 +1,404 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    font-family: Arial,sans-serif;
+    background-color: #f5f7fb;
+    color: #1e3a5f;
+}
+.navbar{
+    height: 70px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.logo{
+    font-size: 24px;
+    font-weight: bold;
+    color: #1557a6;
+}
+.nav-links{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+.nav-links a{
+    text-decoration: none;
+    color: #333;
+    font-size: 15px;
+}
+.register-btn{
+    background-color: #1976d2;
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 6px;
+}
+.hero {
+    min-height: 400px;
+    background-color: #e8f2ff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 80px;
+}
+.hero-content {
+    max-width: 600px;
+}
+.hero h1{
+    font-size: 48px;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+.hero p{
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+.hero-button {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #1976d2;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+}
+.hero button:hover {
+    background-color: #1557a6;
+}
+.hero-image {
+    width: 300px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.calendar{
+    font-size: 120px;
+} 
+.megaphone{
+    font-size: 60px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+.events  {
+    padding: 50px 80px;
+}
+.events h2{
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+.event-container{
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+.event-card{
+    background-color: white;
+    width: 280px;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+.event-card h3{
+    margin-top: 0;
+    font-size: 20px;
+}
+.event-card p{
+    color: #666;
+    font-size: 14px;
+}
+.event-card button {
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.event-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+.event-card button:hover {
+    background-color: #1557a6;
+}
+
+
+/* events page */
+.events-page{
+    padding: 50px 80px;
+} 
+.events-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    max-width: 1600px;
+}
+.events-header h1{
+    margin: 0;
+    font-size: 50px;
+}
+.events-header input {
+    width: 300px;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+}
+.categories{
+    display: flex;
+    gap: 12px;
+    margin-bottom: 35px;
+}
+.categories button{
+    padding: 9px 18px;
+    background-color: white;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.categories .active{
+    background-color: #1976d2;
+    color: white;
+    border-color: #1976d2;
+}
+.all-events{
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+.all-events .event-card{
+    width: 500px;
+}
+.event-button {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #1976d2;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+}
+
+
+
+.event-details-page{
+    padding: 50px 80px;
+}
+.back-to {
+    margin-bottom: 50px;
+}  
+.back-to a{
+    text-decoration: none;
+    color: #1976d2;
+    font-size: 16px;
+}
+.back-to a:hover{
+    text-decoration: underline;
+}
+.event-info {
+    background-color: white;
+    max-width: 1100px;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+.event-info h1{
+    font-size: 36px;
+    color: #1e3a5f;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+.event-meta {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+    color: #555;
+}
+.event-meta p{
+    margin: 0;
+}
+.event-info h2{
+    color: #1e3a5f;
+    font-size: 24px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+.event-info p{
+    color: #555;
+    line-height: 1.6;
+    font-size: 16px;
+}
+.event-info ul{
+    color: #555;
+    line-height: 2;
+    padding-left: 25px;
+}
+.register-now{
+    text-decoration: none;
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor:pointer;
+    margin-top: 20px;
+}
+.register-now:hover{
+    background-color: #1557a6;
+}
+
+
+
+.registration-page {
+    background-color: #f5f7fb;
+    padding: 50px 20px;
+}
+.registration-page h1{
+    font-size: 40px;
+    text-align: center;
+    color: #1e3a5f;
+    margin-bottom: 25px;
+}
+.registration-page form{
+    background-color: white;
+    width: 600px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0 auto;
+}
+.registration-page label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1e3a5f;
+}
+.registration-page input,.registration-page select{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.registration-page button {
+    margin-top: 20px;
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.registration-page button:hover{
+    background-color: #1557a6;
+}
+
+
+
+.login-page{
+    background-color: #f5f7fb;
+    padding: 50px 20px;
+}
+.login-page h1{
+    font-size: 40px;
+    text-align: center;
+    color: #1e3a5f;
+    margin-bottom: 25px;
+}
+.login-page form{
+    background-color: white;
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0 auto;
+}
+.login-page label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1e3a5f;
+}
+
+.login-page input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.login-page button {
+    margin-top: 20px;
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login-page button:hover {
+    background-color: #1557a6;
+}
+
+
+/* Registration Success Page */
+
+.events-page:has(.success-card) {
+    min-height: calc(100vh - 130px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.success-card {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 40px 30px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    background-color: #e6f7ed;
+    color: #16834a;
+    font-size: 44px;
+    line-height: 80px;
+    font-weight: bold;
+}
+
+.success-card h1 {
+    color: #1e3a5f;
+    margin-bottom: 16px;
+}
+
+.success-card p {
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.success-card .event-button {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+}
